@@ -9,7 +9,7 @@
 <body>
 
    <ul>
-      <li><a href ="alras.jsp">Altas</a></li>
+      <li><a href ="altas.jsp">Altas</a></li>
       <!--  -->
    </ul>
 </body>

@@ -10,7 +10,7 @@
       com.mysql.jdbc.Driver
     </property>
     <property name = "hibarnate.conection.url">
-    jdbc:mysql://localhost/mup_database?serverTimezone=UTC
+    jdbc:mysql://localhost/Bilbioteca?serverTimezone=UTC
     </property>
     <property name = "hibernate.connection.username">
      root

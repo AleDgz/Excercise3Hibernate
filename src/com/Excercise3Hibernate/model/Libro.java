@@ -12,15 +12,19 @@ public class Libro {
 	
   @Id	
   @GeneratedValue
-  @Column(name="idLibro")
+  @Column(name="id_Libro")
   private int idLibro;
   
-  @Column(name="nombreLibro")
+  @Column(name="nombre_Libro")
   private String nombreLibro;
   
+  @Column(name ="autor_Libro")
+  private String autorLibro;
+  
+  @Column(name = "ISBN")
+  private String IsbnLibro;
   
   
-//agregar los demas atributos
   
   public int getIdLibro() {
 	  return idLibro;
@@ -36,6 +40,22 @@ public String getNombreLibro() {
 
 public void setNombreLibro(String nombreLibro) {
 	this.nombreLibro = nombreLibro;
+}
+
+public String getAutorLibro() {
+	return autorLibro;
+}
+
+public void setAutorLibro(String autorLibro) {
+	this.autorLibro = autorLibro;
+}
+
+public String getIsbnLibro() {
+	return IsbnLibro;
+}
+
+public void setIsbnLibro(String isbnLibro) {
+	IsbnLibro = isbnLibro;
 }
   
   
