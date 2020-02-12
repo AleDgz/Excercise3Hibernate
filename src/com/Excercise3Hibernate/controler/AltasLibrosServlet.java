@@ -7,6 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
 import com.Excercise3Hibernate.model.Libro;
 
 @WebServlet("/AltasLibrosServlet")
@@ -18,7 +23,22 @@ public class AltasLibrosServlet extends HttpServlet {
        //configuracion de hibernate
 		
 		
-	   //creacion de objetos
+	   //creacion de objeto de la configuracion
+		//y asociarlo al archivo de configuracion
+		Configuration cfg = new Configuration();
+		cfg.configure("hibernate.cfg.xml");
+		
+		//creamos sesion Factory
+		SessionFactory factory = cfg.buildSessionFactory();
+		
+		//crear objeto session
+		Session session = factory.openSession();
+		
+		//Iniciando transaction
+		Transaction t = session.beginTransaction();
+		
+		
+		//creacion de objetos
 		Libro miObjetoLibro = new Libro();
 		
 	   //cachar datos de jsp
@@ -38,6 +58,19 @@ public class AltasLibrosServlet extends HttpServlet {
        
        response.getWriter().append("Nombre: " + miObjetoLibro.getNombreLibro() + " , Autor: " + miObjetoLibro.getAutorLibro() + ", ISBN: " + miObjetoLibro.getIsbnLibro());
       
+       
+       
+       session.persist(miObjetoLibro);
+       System.out.println("objeto en persist");
+       
+       //ejecuta la transaccion
+       t.commit();
+       System.out.println("se hizo commit");
+       
+       //cerrar la session
+       session.close();
+       
+       System.out.println("guardado exitosamente");
 	}
 
 }
